@@ -1,5 +1,5 @@
 #react-indicator
-> Mint-ui(Vue2.x) widget react-indicator based on sass &amp; webpack.
+> Indicator component for react.
 
 
 ## resource:

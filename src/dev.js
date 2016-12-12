@@ -1,11 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactIndicator from './main';
+import {Indicator,IndicatorCtrl} from './main';
 
 
-console.log(ReactIndicator);
+class App extends React.Component{
+  componentWillMount(){
+    this._indicator= IndicatorCtrl.getInstance({
+      cssClass:'test',
+      visible:false
+    })
+  }
+  _click(){
+    IndicatorCtrl.show();
+    setTimeout(function(){
+      IndicatorCtrl.hide();
+    },1000)
+  }
+  render(){
+    return (
+      <button onClick={this._click.bind(this)}>show indicator</button>
+    );
+  }
+}
+
 
 ReactDOM.render(
-    <ReactIndicator />,
+    <App />,
     document.getElementById('app')
 );

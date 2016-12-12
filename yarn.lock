@@ -3530,6 +3530,17 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react-append-to-document@afeiship/react-append-to-document, "react-append-to-document@github:afeiship/react-append-to-document":
+  version "1.0.0"
+  resolved "https://codeload.github.com/afeiship/react-append-to-document/tar.gz/a9c4b841fc93f6585ec3eec9b7dfb878d4aee051"
+
+"react-backdrop@github:afeiship/react-backdrop":
+  version "0.1.0"
+  resolved "https://codeload.github.com/afeiship/react-backdrop/tar.gz/fec95cd873ee47669d749fa93838491c631fb1f6"
+  dependencies:
+    react "^15.4.1"
+    react-dom "^15.4.1"
+
 react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/react-deep-force-update/download/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
@@ -3558,6 +3569,14 @@ react-proxy@^3.0.0-alpha.0:
   resolved "http://registry.npm.taobao.org/react-proxy/download/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
   dependencies:
     lodash "^4.6.1"
+
+"react-spinner@github:afeiship/react-spinner":
+  version "0.1.0"
+  resolved "https://codeload.github.com/afeiship/react-spinner/tar.gz/925d2e226b211edc211bbeeefcd7cdb3d5066cfc"
+  dependencies:
+    classnames "^2.2.5"
+    react "^15.4.1"
+    react-dom "^15.4.1"
 
 react@^15.4.1:
   version "15.4.1"

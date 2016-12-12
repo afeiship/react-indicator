@@ -78,6 +78,9 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-append-to-document": "afeiship/react-append-to-document",
+    "react-backdrop": "github:afeiship/react-backdrop",
+    "react-dom": "^15.4.1",
+    "react-spinner": "github:afeiship/react-spinner"
   }
 }
