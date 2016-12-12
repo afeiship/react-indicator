@@ -51,7 +51,7 @@ class Indicator extends React.Component{
     return (
       <div data-visible={this.state.visible} className={classNames('react-indicator',this.props.cssClass)}>
         <div className="react-indicator-wrapper">
-          <Spinner cssClass="spin"/>
+          <Spinner cssClass="spin" color="#FFF" width="2px"/>
           <span className="text">{this.props.text}</span>
         </div>
         <Backdrop visible={this.state.visible} style={this.props.backdropStyle}  />
