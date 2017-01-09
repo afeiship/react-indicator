@@ -3,9 +3,10 @@ import {Indicator,IndicatorCtrl} from './main';
 
 class App extends React.Component{
   componentWillMount(){
-    this._indicator= IndicatorCtrl.getInstance({
-      cssClass:'test',
-      visible:false
+    this._indicator= IndicatorCtrl.createInstance({
+      // cssClass:'test',
+      visible:false,
+      text:null
     })
   }
   _click(){
