@@ -2,7 +2,7 @@ import './style.scss';
 import classNames from 'classnames';
 import appendToDocument from 'react-append-to-document';
 import Spinner from 'react-spinner';
-import {Backdrop} from 'react-backdrop';
+import {ReactBackdrop} from 'react-backdrop';
 
 class Indicator extends React.Component{
   static propTypes = {
@@ -26,7 +26,6 @@ class Indicator extends React.Component{
       visible:props.visible
     }
   }
-
 
   static newInstance(inProps){
     return appendToDocument(Indicator,inProps,{
@@ -54,7 +53,7 @@ class Indicator extends React.Component{
           <Spinner cssClass="spin" color="#FFF" width="2px"/>
           {this.props.text && <span className="text">{this.props.text}</span>}
         </div>
-        <Backdrop visible={this.state.visible} style={this.props.backdropStyle}  />
+        <ReactBackdrop visible={this.state.visible} style={this.props.backdropStyle}  />
       </div>
     );
   }
