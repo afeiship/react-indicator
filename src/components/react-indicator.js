@@ -17,7 +17,7 @@ class Indicator extends React.Component{
     cssClass:'',
     backdropStyle:{
       opacity:0.5,
-      position:fixed
+      position:'fixed'
     }
   }
 
