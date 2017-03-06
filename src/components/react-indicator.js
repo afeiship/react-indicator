@@ -16,8 +16,7 @@ class Indicator extends React.Component{
     text:'加载中...',
     cssClass:'',
     backdropStyle:{
-      opacity:0.5,
-      position:'fixed'
+      opacity:0.5
     }
   }
 
