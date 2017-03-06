@@ -1,7 +1,6 @@
 .react-indicator{
   transition: opacity 0.3s linear,z-index 0.4s linear;
   &-wrapper {
-    z-index:0;
     position: fixed;
     top:38.2%;
     left:50%;
