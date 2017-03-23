@@ -7,10 +7,14 @@ export default class IndicatorCtrl {
     instance = instance || Indicator.newInstance(inProps);
     return instance;
   }
-  static show(){
-    instance.component.show();
+  static show(inOptions){
+    instance.component.show(inOptions);
   }
   static hide(){
     instance.component.hide();
+  }
+  static destroy(){
+    instance.destroy();
+    instance = null;
   }
 }

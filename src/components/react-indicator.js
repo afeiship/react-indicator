@@ -1,4 +1,5 @@
 import './style.scss';
+import React from 'react';
 import classNames from 'classnames';
 import appendToDocument from 'react-append-to-document';
 import Spinner from 'react-spinner';
@@ -6,15 +7,18 @@ import {ReactBackdrop} from 'react-backdrop';
 
 class Indicator extends React.Component{
   static propTypes = {
+    className:React.PropTypes.string,
     visible:React.PropTypes.bool,
     text:React.PropTypes.string,
-    cssClass:React.PropTypes.string
+    backdrop:React.PropTypes.bool,
+    backdropStyle:React.PropTypes.object
   }
 
   static defaultProps = {
+    className:'',
     visible:false,
-    text:'加载中...',
-    cssClass:'',
+    backdrop:true,
+    text:null,
     backdropStyle:{
       opacity:0.5
     }
@@ -22,9 +26,10 @@ class Indicator extends React.Component{
 
   constructor(props){
     super(props);
-    this.state={
-      visible:props.visible
-    }
+    const {className, visible, backdrop, text, backdropStyle} = props;
+    this.state = {
+      className, visible, backdrop, text, backdropStyle
+    };
   }
 
   static newInstance(inProps){
@@ -33,27 +38,26 @@ class Indicator extends React.Component{
     });
   }
 
-  componentWillReceiveProps(nextProps){
-    this.state({
-      visible:nextProps.visible
-    })
+  show(inOptions={}){
+    let props = this.props;
+    this.setState(
+      Object.assign({},props,inOptions,{visible:true})
+    );
   }
 
-  show(){
-    this.setState({visible:true});
-  }
   hide(){
     this.setState({visible:false});
   }
 
   render(){
+    const {className, text, backdrop ,visible, backdropStyle} = this.state;
     return (
-      <div data-visible={this.state.visible} className={classNames('react-indicator',this.props.cssClass)}>
+      <div data-visible={visible} className={classNames('react-indicator',className)}>
         <div className="react-indicator-wrapper">
           <Spinner cssClass="spin" color="#FFF" width="2px"/>
-          {this.props.text && <span className="text">{this.props.text}</span>}
+          {text && <span className="text">{text}</span>}
         </div>
-        <ReactBackdrop visible={this.state.visible} style={this.props.backdropStyle}  />
+        {backdrop && <ReactBackdrop visible={visible} style={backdropStyle}  />}
       </div>
     );
   }
