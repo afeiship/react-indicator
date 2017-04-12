@@ -1,7 +1,7 @@
-import Indicator from 'components/react-indicator';
-import IndicatorCtrl from 'components/react-indicator-ctrl';
+import ReactIndicator from 'components/react-indicator';
+import ReactIndicatorCtrl from 'components/react-indicator-ctrl';
 
 module.exports = {
-  Indicator,
-  IndicatorCtrl
+  ReactIndicator,
+  ReactIndicatorCtrl
 };

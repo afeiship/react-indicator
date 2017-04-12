@@ -1,31 +1,31 @@
-import {Indicator,IndicatorCtrl} from './main';
+import {ReactIndicator,ReactIndicatorCtrl} from './main';
 import './dev.scss';
 
 class App extends React.Component{
   componentWillMount(){
-    this._indicator= IndicatorCtrl.createInstance({
+    this._indicator= ReactIndicatorCtrl.createInstance({
       visible:false,
       text:'loading...'
     })
   }
   _click1(){
-    IndicatorCtrl.show({text:'loading2...'});
+    ReactIndicatorCtrl.show({text:'loading2...'});
     setTimeout(function(){
-      IndicatorCtrl.hide();
+      ReactIndicatorCtrl.hide();
     },1000)
   }
 
   _click2(){
-    IndicatorCtrl.show({text:'backdrop0.01...',backdropStyle:{opacity:0.01}});
+    ReactIndicatorCtrl.show({text:'backdrop0.01...',backdropStyle:{opacity:0.01}});
     setTimeout(function(){
-      IndicatorCtrl.hide();
+      ReactIndicatorCtrl.hide();
     },2000)
   }
 
   _click3(){
-    IndicatorCtrl.show({text:'no backdrop...',backdropStyle:{opacity:0.01}});
+    ReactIndicatorCtrl.show({text:'no backdrop...',backdropStyle:{opacity:0.01}});
     setTimeout(function(){
-      IndicatorCtrl.hide();
+      ReactIndicatorCtrl.hide();
     },1000)
   }
 

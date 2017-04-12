@@ -1,18 +1,19 @@
 import './style.scss';
-import React from 'react';
+import React,{PureComponent} from 'react';
 import classNames from 'classnames';
 import appendToDocument from 'react-append-to-document';
-import Spinner from 'react-spinner';
+import ReactSpinner from 'react-spinner';
 import {ReactBackdrop} from 'react-backdrop';
+import PropTypes from 'prop-types';
 
-class Indicator extends React.Component{
+export default class ReactIndicator extends PureComponent{
   static propTypes = {
-    className:React.PropTypes.string,
-    visible:React.PropTypes.bool,
-    text:React.PropTypes.string,
-    backdrop:React.PropTypes.bool,
-    backdropStyle:React.PropTypes.object
-  }
+    className:PropTypes.string,
+    visible:PropTypes.bool,
+    text:PropTypes.string,
+    backdrop:PropTypes.bool,
+    backdropStyle:PropTypes.object
+  };
 
   static defaultProps = {
     className:'',
@@ -22,7 +23,7 @@ class Indicator extends React.Component{
     backdropStyle:{
       opacity:0.5
     }
-  }
+  };
 
   constructor(props){
     super(props);
@@ -33,7 +34,7 @@ class Indicator extends React.Component{
   }
 
   static newInstance(inProps){
-    return appendToDocument(Indicator,inProps,{
+    return appendToDocument(ReactIndicator,inProps,{
       className:'indicator-container'
     });
   }
@@ -54,7 +55,7 @@ class Indicator extends React.Component{
     return (
       <div data-visible={visible} className={classNames('react-indicator',className)}>
         <div className="react-indicator-wrapper">
-          <Spinner cssClass="spin" color="#FFF" width="2px"/>
+          <ReactSpinner className="spin" color="#FFF" width="2px"/>
           {text && <span className="text">{text}</span>}
         </div>
         {backdrop && <ReactBackdrop visible={visible} style={backdropStyle}  />}
@@ -62,6 +63,3 @@ class Indicator extends React.Component{
     );
   }
 }
-
-
-export default Indicator;

@@ -1,10 +1,10 @@
-import Indicator from 'components/react-indicator';
+import ReactIndicator from 'components/react-indicator';
 
 let instance;
 
-export default class IndicatorCtrl {
+export default class ReactIndicatorCtrl {
   static createInstance(inProps) {
-    instance = instance || Indicator.newInstance(inProps);
+    instance = instance || ReactIndicator.newInstance(inProps);
     return instance;
   }
   static show(inOptions){
