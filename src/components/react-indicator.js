@@ -9,16 +9,19 @@ import PropTypes from 'prop-types';
 
 export default class ReactIndicator extends ReactVisible{
   static propTypes = {
+    zIndex:PropTypes.number,
     text:PropTypes.string,
     backdrop:PropTypes.bool,
     backdropStyle:PropTypes.object
   };
 
   static defaultProps = {
+    zIndex:1000,
     backdrop:true,
     text:null,
     backdropStyle:{
-      opacity:0.5
+      opacity:0.5,
+      zIndex:999
     }
   };
 
@@ -45,6 +48,7 @@ export default class ReactIndicator extends ReactVisible{
   }
 
   render(){
+    const {zIndex} = this.props;
     const {className, text, backdrop ,visible,hidden, backdropStyle} = this.state;
     return (
       <div
@@ -52,7 +56,7 @@ export default class ReactIndicator extends ReactVisible{
       data-visible={visible}
       onTransitionEnd = {this._onTransitionEnd}
       className={classNames('react-indicator',className)}>
-        <div className="react-indicator-wrapper">
+        <div className="react-indicator-wrapper" style={{zIndex:zIndex}}>
           <ReactSpinner className="spin" color="#FFF" width="2px"/>
           {text && <span className="text">{text}</span>}
         </div>
