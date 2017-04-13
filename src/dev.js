@@ -9,7 +9,7 @@ class App extends React.Component{
     })
   }
   _click1(){
-    ReactIndicatorCtrl.show({text:'loading2...'});
+    ReactIndicatorCtrl.show({text:'loading1...'});
     setTimeout(function(){
       ReactIndicatorCtrl.hide();
     },1000)

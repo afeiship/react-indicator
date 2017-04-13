@@ -3,21 +3,18 @@ import React,{PureComponent} from 'react';
 import classNames from 'classnames';
 import appendToDocument from 'react-append-to-document';
 import ReactSpinner from 'react-spinner';
+import ReactVisible from 'react-visible';
 import {ReactBackdrop} from 'react-backdrop';
 import PropTypes from 'prop-types';
 
-export default class ReactIndicator extends PureComponent{
+export default class ReactIndicator extends ReactVisible{
   static propTypes = {
-    className:PropTypes.string,
-    visible:PropTypes.bool,
     text:PropTypes.string,
     backdrop:PropTypes.bool,
     backdropStyle:PropTypes.object
   };
 
   static defaultProps = {
-    className:'',
-    visible:false,
     backdrop:true,
     text:null,
     backdropStyle:{
@@ -27,9 +24,11 @@ export default class ReactIndicator extends PureComponent{
 
   constructor(props){
     super(props);
-    const {className, visible, backdrop, text, backdropStyle} = props;
+    const {backdrop, text,visible, backdropStyle} = props;
     this.state = {
-      className, visible, backdrop, text, backdropStyle
+      backdrop, text, backdropStyle,visible,
+      hidden:!visible,
+      animating:false
     };
   }
 
@@ -39,21 +38,20 @@ export default class ReactIndicator extends PureComponent{
     });
   }
 
-  show(inOptions={}){
-    let props = this.props;
-    this.setState(
-      Object.assign({},props,inOptions,{visible:true})
-    );
-  }
-
-  hide(){
-    this.setState({visible:false});
+  show(inOptions,inCallback){
+    this.setState( Object.assign({...this.props},inOptions,{visible:true}), ()=>{
+      super.show(inCallback);
+    });
   }
 
   render(){
-    const {className, text, backdrop ,visible, backdropStyle} = this.state;
+    const {className, text, backdrop ,visible,hidden, backdropStyle} = this.state;
     return (
-      <div data-visible={visible} className={classNames('react-indicator',className)}>
+      <div
+      hidden ={hidden}
+      data-visible={visible}
+      onTransitionEnd = {this._onTransitionEnd}
+      className={classNames('react-indicator',className)}>
         <div className="react-indicator-wrapper">
           <ReactSpinner className="spin" color="#FFF" width="2px"/>
           {text && <span className="text">{text}</span>}
