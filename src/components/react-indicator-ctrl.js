@@ -3,6 +3,7 @@ import ReactIndicator from 'components/react-indicator';
 let instance;
 
 export default class ReactIndicatorCtrl {
+
   static createInstance(inProps) {
     instance = instance || ReactIndicator.newInstance(inProps);
     return instance;
@@ -17,4 +18,5 @@ export default class ReactIndicatorCtrl {
     instance.destroy();
     instance = null;
   }
+
 }

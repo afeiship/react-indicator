@@ -3,11 +3,10 @@ import React,{PureComponent} from 'react';
 import classNames from 'classnames';
 import appendToDocument from 'react-append-to-document';
 import ReactSpinner from 'react-spinner';
-import ReactVisible from 'react-visible';
 import {ReactBackdrop} from 'react-backdrop';
 import PropTypes from 'prop-types';
 
-export default class ReactIndicator extends ReactVisible{
+export default class ReactIndicator extends ReactBackdrop{
   static propTypes = {
     zIndex:PropTypes.number,
     text:PropTypes.string,
@@ -27,22 +26,23 @@ export default class ReactIndicator extends ReactVisible{
 
   constructor(props){
     super(props);
-    const {backdrop, text,visible, backdropStyle} = props;
+    const {backdrop, text, backdropStyle} = props;
     this.state = {
-      backdrop, text, backdropStyle,visible,
-      hidden:!visible,
+      backdrop, text, backdropStyle,
+      visible:false,
+      hidden:true,
       animating:false
     };
   }
 
   static newInstance(inProps){
     return appendToDocument(ReactIndicator,inProps,{
-      className:'indicator-container'
+      className:'react-indicator-container'
     });
   }
 
   show(inOptions,inCallback){
-    this.setState( Object.assign({...this.props},inOptions,{visible:true}), ()=>{
+    this.setState( Object.assign({...this.props},inOptions), ()=>{
       super.show(inCallback);
     });
   }
