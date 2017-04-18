@@ -19,6 +19,7 @@ export default class ReactIndicator extends ReactBackdrop{
     backdrop:true,
     text:null,
     backdropStyle:{
+      position:'fixed',
       opacity:0.5,
       zIndex:999
     }
@@ -60,7 +61,7 @@ export default class ReactIndicator extends ReactBackdrop{
           <ReactSpinner className="spin" color="#FFF" width="2px"/>
           {text && <span className="text">{text}</span>}
         </div>
-        {backdrop && <ReactBackdrop visible={visible} style={backdropStyle}  />}
+        {backdrop && <ReactBackdrop className="react-indicator-backdrop" visible={visible} style={backdropStyle}  />}
       </div>
     );
   }
