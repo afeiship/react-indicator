@@ -1,10 +1,13 @@
 import './style.scss';
+
 import React,{PureComponent} from 'react';
-import classNames from 'classnames';
-import appendToDocument from 'react-append-to-document';
-import ReactSpinner from 'react-spinner';
-import {ReactBackdrop} from 'react-backdrop';
+
 import PropTypes from 'prop-types';
+import {ReactBackdrop} from 'react-backdrop';
+import ReactSpinner from 'react-spinner';
+import appendToDocument from 'react-append-to-document';
+import classNames from 'classnames';
+import objectAssign from 'object-assign';
 
 export default class ReactIndicator extends ReactBackdrop{
   static propTypes = {
@@ -43,7 +46,7 @@ export default class ReactIndicator extends ReactBackdrop{
   }
 
   show(inOptions,inCallback){
-    this.setState( Object.assign({...this.props},inOptions), ()=>{
+    this.setState( objectAssign({...this.props},inOptions), ()=>{
       super.show(inCallback);
     });
   }
