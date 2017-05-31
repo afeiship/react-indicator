@@ -1,5 +1,9 @@
-import {ReactIndicator,ReactIndicatorCtrl} from './main';
 import './dev.scss';
+
+import {ReactIndicator, ReactIndicatorCtrl} from './main';
+
+window.rt = ReactIndicatorCtrl;
+
 
 class App extends React.Component{
   componentWillMount(){
