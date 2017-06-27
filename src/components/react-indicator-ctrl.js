@@ -8,11 +8,11 @@ export default class ReactIndicatorCtrl {
     instance = instance || ReactIndicator.newInstance(inProps);
     return instance;
   }
-  static show(inOptions,inCallback){
-    instance.component.show(inOptions,inCallback);
+  static show(inOptions){
+    return instance.component.show(inOptions);
   }
-  static hide(inCallback){
-    instance.component.hide(inCallback);
+  static hide(){
+    return instance.component.hide();
   }
   static destroy(){
     instance.destroy();

@@ -45,10 +45,11 @@ export default class ReactIndicator extends ReactBackdrop{
     });
   }
 
-  show(inOptions,inCallback){
+  show(inOptions){
     this.setState( objectAssign({...this.props},inOptions), ()=>{
-      super.show(inCallback);
+      super.show();
     });
+    return this;
   }
 
   render(){
