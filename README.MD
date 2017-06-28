@@ -66,3 +66,6 @@ class App extends React.Component{
 }
 
 ```
+
+## todos:
+- [ ] add delay() for indicator.
